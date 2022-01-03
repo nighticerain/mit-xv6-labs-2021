@@ -32,7 +32,7 @@ int
 main(int argc, char *argv[])
 {
     int p[2];
-    pipe[p];
+    pipe(p);
     int prime = 2;
     printf("prime %d\n", 2);
 
