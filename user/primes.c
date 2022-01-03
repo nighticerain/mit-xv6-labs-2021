@@ -6,7 +6,7 @@ void
 new_proc(int p[2])
 {
     close(p[1]);
-    int prime, num;
+    int prime;
     read(p[0], &prime, 4);
     if (prime) {
         printf("prime %d\n", prime);
@@ -16,6 +16,7 @@ new_proc(int p[2])
             new_proc(next_p);
         } else {
             close(next_p[0]);
+            int num;
             while (read(p[0], &num, 4)) {
                 if (num % prime) {
                     write(next_p[1], &num, 4);
@@ -31,7 +32,8 @@ int
 main(int argc, char *argv[])
 {
     int p[2];
-    int prime = 2, num;
+    pipe[p];
+    int prime = 2;
     printf("prime %d\n", 2);
 
     if (fork() == 0) {
